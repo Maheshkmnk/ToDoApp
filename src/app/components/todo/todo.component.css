@@ -1,0 +1,51 @@
+
+
+.todo{
+    background-color: #007C80;
+    color: whitesmoke;
+    box-shadow: 10px 10px 15px 2px #4b5151;
+    height: 100%;
+}
+
+.default-note{
+    background-color: #007C80;
+    border-radius: 100%;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.default-note-div{
+    display: flex;
+    justify-content: center;
+}
+
+textarea{
+   background-color: inherit;
+   border: none;
+   outline: none;
+   /* border: #007C80;
+   border-color: #007C80; */
+   color: whitesmoke;
+   height: 100%;
+   width: 100%   ;
+   /* text-emphasis-color: white; */
+}
+
+input{
+    background-color: inherit;
+    border: none;
+    outline: none;
+    /* border: #007C80;
+    border-color: #007C80; */
+    color: whitesmoke;
+    height: 100%;
+    width: 80%   ;
+}
+
+/* Change the color of the placeholder text */
+input::placeholder,
+textarea::placeholder {
+  color: rgb(115, 160, 200);
+}
+
+

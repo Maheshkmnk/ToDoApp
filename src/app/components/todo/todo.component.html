@@ -1,0 +1,98 @@
+<div class=" m-auto d-flex flex-wrap ">
+    <div class="col-3 todo m-4 p-2 rounded " *ngFor="let box of boxes; let i = index">
+        <form [formGroup]="noteData">
+            <div class="navbar d-flex justify-content-between header">
+                <div *ngIf="currentEditNoteId!==box.id ">{{box.title}}</div>
+                <input #titleInput *ngIf="currentEditNoteId===box.id && edit" formControlName="title"
+                    placeholder="Enter title of your note" />
+                <div (click)="addNote()" class="btn btn-light" *ngIf="i === boxes.length-1">+</div>
+            </div>
+            <hr />
+            <div class="d-flex">
+                <textarea rows="6" *ngIf="currentEditNoteId===box.id && edit" formControlName="content"
+                    placeholder="Enter your notes and save"></textarea>
+                <p *ngIf="currentEditNoteId!==box.id" class="content">{{box.content}}</p>
+            </div>
+
+            <div class=" d-flex justify-content-end mb-2 header">
+                <div>last edited---{{box.editedDate}}</div>
+            </div>
+            <hr />
+            <footer>
+                <div class="d-flex justify-content-between">
+                    <div type="submit" class="btn btn-secondary" *ngIf="currentEditNoteId===box.id"
+                        (click)="saveNote(box.id)">Save</div>
+                    <div class="btn btn-secondary" *ngIf="currentEditNoteId!==box.id" (click)="editNote(box.id)">Edit
+                    </div>
+                    <div class="btn btn-secondary" (click)="deleteNote(box.id)">Delete</div>
+                </div>
+            </footer>
+        </form>
+    </div>
+</div>
+
+
+<div class="default-note-div">
+    <span (click)="addNote()" class="m-4 p-2 default-note" *ngIf="boxes.length===0">
+        CreateNote<br /><b>+</b>
+    </span>
+</div>
+
+
+
+
+
+
+<!-- <div class="m-auto d-flex flex-wrap justify-content-center">
+    <div class="col-3 todo m-4 p-2 rounded " *ngFor="let box of boxes; let i = index">
+        <div class="navbar d-flex justify-content-between header">
+            <div>{{box.title}}</div>
+            <div (click)="addBox()" class="btn btn-light" *ngIf="i === boxes.length-1">+</div>
+        </div>
+        <hr />
+        <div class="d-flex">
+            <p class="content">{{box.content}}
+            </p>
+        </div>
+
+        <div class=" d-flex justify-content-end mb-2 header">
+            <div>last edited---{{box.editedDate}}</div>
+        </div>
+
+        <hr />
+        <footer>
+            <div class="d-flex justify-content-between">
+                <div>Save</div>
+                <div>Edit</div>
+                <div (click)="deleteNote(box.id)">Delete</div>
+            </div>
+        </footer>
+    </div>
+</div> -->
+
+<!-- <div class="col-3 todo m-4 p-2 rounded ">
+    <div class="navbar d-flex justify-content-between header">
+        <div>something</div>
+        <div (click)="addBox()">+</div>
+    </div>
+    <hr />
+    <div class="d-flex">
+        <p class="content">If the issue persists, consider a new, minimal Angular project and following
+            the Bootstrap installation steps again. can help isolate whether
+            the problem is specific to your project setup.
+        </p>
+    </div>
+
+    <div class=" d-flex justify-content-end mb-2 header">
+        <div>last edited---2023/12/12</div>
+    </div>
+
+    <hr />
+    <footer>
+        <div class="d-flex justify-content-between footer">
+            <div>Save</div>
+            <div>Edit</div>
+            <div>Delete</div>
+        </div>
+    </footer>
+</div> -->
